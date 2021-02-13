@@ -1,5 +1,11 @@
 
-# https://dev.to/razcodes/how-to-create-a-lambda-using-python-with-dependencies-4846
+# Deploy as aws lambda, runs periodically:
+# Upload to s3 bucket ccdd-lambda-code/android-app-sentiment
+# Parse google android reviews.
+# Filter them by date.
+# Group comments for app version and sent them to aws comprehend to retrieve sentiment.
+# Sent report to microsoft teams.
+# Packed following as: https://dev.to/razcodes/how-to-create-a-lambda-using-python-with-dependencies-4846
 from google_play_scraper import reviews_all
 import json 
 import datetime
@@ -17,7 +23,7 @@ CONTENT_FIELD = 'content'
 AT_FIELD = 'at'
 SCORE_FIELD = 'score'
 SENTIMENT_FIELD = 'Sentiment'
-APP_PACKAGE = 'com.verisure.securitasdirect.owa'
+APP_PACKAGE = '<to_be_included>'
 
 def get_reviews():
   result = reviews_all(
